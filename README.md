@@ -10,50 +10,111 @@ Repositorio con la resolución de la Actividad 05 del curso de Aprendizaje de M�
 | [`Olivetti_Faces_PCA.ipynb`](./Olivetti_Faces_PCA.ipynb) | Sistema de reconocimiento facial basado en **Eigenfaces (PCA)** + SVM sobre el dataset **Olivetti Faces**, sin uso de redes neuronales. |
 | [`NMF_Recomendacion_Articulos.ipynb`](./NMF_Recomendacion_Articulos.ipynb) | Sistema de **recomendación de artículos** periodísticos usando **NMF** + similitud de coseno, sobre el dataset BBC News Summary. |
 
-El informe completo en PDF con la explicación detallada de los tres casos se encuentra en `/informe/Informe_Actividad05.pdf`.
+# Aplicaciones de Modelos de Clustering Jerárquico, PCA y NMF
 
-## 🧩 Caso A — Clustering Jerárquico (20 Newsgroups)
+## Descripción
 
-- **Dataset:** subconjunto de 7 categorías de 20 Newsgroups (4011 documentos).
-- **Pipeline:** TF-IDF → TruncatedSVD (LSA, 100 componentes) → `AgglomerativeClustering`.
-- **Linkages comparados:** `ward`, `complete`, `average` (evaluados con ARI, NMI y Silhouette Score).
-- **Resultado:** `ward` fue el más exitoso (ARI = 0.121, NMI = 0.311), mientras que `complete` y `average` sufrieron un efecto de encadenamiento (chaining effect).
+Este repositorio contiene el desarrollo de la **Actividad 05** del curso de Machine Learning, cuyo objetivo es comprender las aplicaciones de modelos de **Clustering Jerárquico**, **Análisis de Componentes Principales (PCA)** y **Factorización de Matrices No Negativas (NMF)** utilizando datasets proporcionados por la biblioteca **scikit-learn**.
 
-## 👤 Caso B — Eigenfaces (PCA + SVM)
+A través de estos casos de estudio se analizan diferentes técnicas de aprendizaje no supervisado y reducción de dimensionalidad, aplicadas a problemas reales como el agrupamiento de documentos, el reconocimiento de rostros y los sistemas de recomendación.
 
-- **Dataset:** Olivetti Faces (400 imágenes, 40 personas, 64x64 px).
-- **Pipeline:** PCA (100 componentes, 94% varianza explicada) → SVM (`GridSearchCV` sobre kernel y C).
-- **Resultado:** Accuracy de **97%** en el conjunto de prueba, sin usar redes neuronales.
+---
 
-## 📰 Caso C — Recomendador de Artículos (NMF)
+## Objetivos
 
-- **Dataset:** BBC News Summary (2225 artículos, 5 categorías).
-- **Pipeline:** TF-IDF → NMF (5 tópicos) → similitud de coseno sobre la matriz de tópicos `W`.
-- **Resultado:** temas interpretables (deportes, política, negocios, entretenimiento, tecnología) y recomendaciones coherentes por temática.
+- Comprender el funcionamiento del Clustering Jerárquico.
+- Aplicar PCA para la reducción de dimensionalidad y reconocimiento de rostros.
+- Implementar NMF para la recomendación de artículos similares.
+- Analizar e interpretar los resultados obtenidos en cada caso de estudio.
 
-## 🛠️ Tecnologías utilizadas
+---
 
-- Python 3
-- scikit-learn (`TfidfVectorizer`, `TruncatedSVD`, `AgglomerativeClustering`, `PCA`, `SVC`, `NMF`)
-- pandas, numpy, matplotlib, scipy
+## Contenido del Repositorio
 
-## ▶️ Cómo ejecutar
+### Clustering_Jerarquico.ipynb
 
-1. Clonar el repositorio:
-```bash
-   git clone https://github.com/Flavio-zt/Aplicaciones_Modelos_Clustering_PCA_NMF.git
-```
-2. Abrir cada notebook en Google Colab o Jupyter.
-3. Instalar dependencias si es necesario:
-```bash
-   pip install scikit-learn pandas numpy matplotlib scipy
-```
-4. Ejecutar las celdas en orden. El dataset 20 Newsgroups y Olivetti Faces se descargan automáticamente vía `scikit-learn`; el dataset BBC News Summary requiere montar Google Drive (ver notebook C).
+Implementación del algoritmo de **Clustering Jerárquico** utilizando el dataset **20 Newsgroups** de scikit-learn.
 
-## 👥 Equipo
+Se realiza:
 
-- _Agregar nombres de los integrantes del equipo_
+- Carga y preprocesamiento del dataset.
+- Vectorización del texto.
+- Comparación de diferentes criterios de *Linkage*.
+- Evaluación de resultados.
+- Análisis de los grupos obtenidos.
 
-## 📄 Licencia
+---
 
-Uso académico — Actividad 05, curso de Aprendizaje de Máquina.
+### Olivetti_Faces_PCA.ipynb
+
+Implementación de un sistema de reconocimiento de rostros mediante **PCA (Principal Component Analysis)** utilizando el dataset **Olivetti Faces**.
+
+Se desarrolla:
+
+- Carga del dataset.
+- Aplicación de PCA.
+- Obtención de Eigenfaces.
+- Representación de imágenes.
+- Reconocimiento y análisis de resultados.
+
+---
+
+### NMF_Recomendacion_Articulos.ipynb
+
+Desarrollo de un sistema de recomendación de artículos utilizando **NMF (Non-negative Matrix Factorization)**.
+
+Incluye:
+
+- Procesamiento del texto.
+- Extracción de temas mediante NMF.
+- Cálculo de similitud entre documentos.
+- Recomendación de artículos relacionados.
+
+---
+
+## Tecnologías utilizadas
+
+- Python
+- Google Colab
+- Scikit-learn
+- NumPy
+- Pandas
+- Matplotlib
+- SciPy
+
+---
+
+## Datasets utilizados
+
+- **20 Newsgroups Dataset**
+- **Olivetti Faces Dataset**
+- Dataset de artículos utilizado para el sistema de recomendación.
+
+---
+
+## Integrantes
+
+- Flavio Zapana Ticona
+- Integrante 2
+- Integrante 3
+- Integrante 4
+
+---
+
+## Docente
+
+*(Nombre del docente)*
+
+---
+
+## Universidad
+
+**Universidad Nacional del Altiplano – Puno**
+
+Escuela Profesional de Ingeniería de Sistemas
+
+---
+
+## Licencia
+
+Proyecto desarrollado con fines académicos.
